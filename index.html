@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bafia Inc. — Hardwood Floors, Stairs & Trim</title>
+<meta name="description" content="Bafia Inc. builds and restores hardwood floors, stairs, trim, and custom woodwork. Owner-operated by Andrew Bafia. Call for a quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --walnut-950:#170F0A;
+    --walnut-900:#241609;
+    --walnut-800:#3A230F;
+    --oak-500:#C08A52;
+    --brass-400:#D9A45C;
+    --cream-100:#F4EBDC;
+    --cream-300:#E3D2B4;
+    --cream-muted:#B9A98D;
+    --line:rgba(217,164,92,0.28);
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--walnut-950);
+    color:var(--cream-100);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* subtle wood-grain background using layered radial gradients */
+  .grain-bg{
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(192,138,82,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 900px at 110% 40%, rgba(192,138,82,0.06), transparent 60%);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(23,15,10,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .brand svg{height:30px;width:auto;flex-shrink:0;}
+  .nav-cta{
+    display:flex;
+    gap:10px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 20px;
+    border-radius:var(--radius);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.82rem;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, background 0.15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--oak-500);
+    color:var(--walnut-950);
+    font-weight:600;
+  }
+  .btn-primary:hover{background:var(--brass-400); transform:translateY(-1px);}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--cream-300);
+  }
+  .btn-ghost:hover{border-color:var(--oak-500); color:var(--cream-100);}
+  .btn:focus-visible{outline:2px solid var(--brass-400); outline-offset:2px;}
+
+  @media (max-width:640px){
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 88px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero-mark{order:-1;}
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--oak-500);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:1px;
+    background:var(--oak-500);
+    display:inline-block;
+  }
+
+  .hero h1{
+    font-size:clamp(2.5rem, 5.2vw, 4.1rem);
+    line-height:1.03;
+    color:var(--cream-100);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--oak-500);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    max-width:48ch;
+    font-size:1.1rem;
+    color:var(--cream-300);
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn-lg{padding:15px 26px; font-size:0.9rem;}
+
+  .hero-numbers{
+    margin-top:40px;
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .hn{
+    border-left:2px solid var(--oak-500);
+    padding-left:14px;
+  }
+  .hn .k{font-family:'Fraunces',serif; font-size:1.5rem; font-weight:600; color:var(--cream-100);}
+  .hn .v{font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--cream-muted); text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* hero mark: architectural triangle sketch */
+  .hero-mark{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .hero-mark svg{width:100%; max-width:380px; height:auto;}
+
+  /* ---------- RINGS / SERVICES ---------- */
+  .rings-section{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    max-width:20ch;
+  }
+  .section-head p{
+    max-width:38ch;
+    color:var(--cream-muted);
+    font-size:0.98rem;
+  }
+
+  .rings-layout{
+    display:grid;
+    grid-template-columns:minmax(280px, 440px) 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .rings-layout{grid-template-columns:1fr; justify-items:center;}
+  }
+  .rings-svg-wrap{width:100%; max-width:440px;}
+  .rings-svg-wrap svg{width:100%; height:auto; display:block;}
+
+  .ring-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+  }
+  .ring-item{
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:18px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .ring-item:last-child{border-bottom:1px solid var(--line);}
+  .ring-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--oak-500);
+    padding-top:4px;
+  }
+  .ring-item h3{
+    font-size:1.15rem;
+    color:var(--cream-100);
+    margin-bottom:6px;
+  }
+  .ring-item p{
+    margin:0;
+    color:var(--cream-muted);
+    font-size:0.94rem;
+    max-width:46ch;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+  .about h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-bottom:22px;
+  }
+  .about p{
+    color:var(--cream-300);
+    font-size:1.02rem;
+    max-width:50ch;
+  }
+  .about p + p{margin-top:16px;}
+
+  .plank-frame{
+    border:1px solid var(--line);
+    padding:36px;
+    background:linear-gradient(160deg, var(--walnut-900), var(--walnut-950));
+    position:relative;
+  }
+  .plank-frame::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid rgba(217,164,92,0.14);
+    pointer-events:none;
+  }
+  .plank-quote{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    line-height:1.4;
+    color:var(--cream-100);
+    font-weight:500;
+  }
+  .plank-sign{
+    margin-top:24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .plank-sign .sig{
+    width:38px; height:38px;
+    border:1px solid var(--oak-500);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-weight:700; color:var(--oak-500);
+    flex-shrink:0;
+  }
+  .plank-sign .who{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--cream-muted);}
+  .plank-sign .who b{color:var(--cream-100); font-weight:600; display:block; font-family:'Inter', sans-serif; font-size:0.92rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    padding:100px 0 110px;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+  }
+  @media (max-width:860px){
+    .contact-grid{grid-template-columns:1fr; gap:48px;}
+  }
+  .contact h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-bottom:18px;
+  }
+  .contact p.lead{
+    color:var(--cream-muted);
+    max-width:44ch;
+    margin-bottom:36px;
+  }
+
+  .contact-line{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .contact-line:last-of-type{border-bottom:1px solid var(--line);}
+  .contact-line .ic{
+    width:40px; height:40px;
+    border:1px solid var(--oak-500);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    color:var(--oak-500);
+  }
+  .contact-line a.tel{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--cream-100);
+  }
+  .contact-line a.tel:hover{color:var(--oak-500);}
+  .contact-line .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--cream-muted);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    display:block;
+    margin-bottom:4px;
+  }
+
+  .service-area{
+    margin-top:32px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    color:var(--cream-muted);
+    font-size:0.92rem;
+  }
+  .service-area b{color:var(--cream-300); font-weight:600;}
+
+  .contact-panel{
+    background:var(--walnut-900);
+    border:1px solid var(--line);
+    padding:40px;
+  }
+  .contact-panel h3{
+    font-size:1.25rem;
+    margin-bottom:8px;
+    color:var(--cream-100);
+  }
+  .contact-panel p{
+    color:var(--cream-muted);
+    font-size:0.94rem;
+    margin:0 0 26px;
+  }
+  .contact-panel ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .contact-panel li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.94rem;
+    color:var(--cream-300);
+  }
+  .contact-panel li::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--oak-500);
+    margin-top:8px;
+    flex-shrink:0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.76rem;
+    color:var(--cream-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body class="grain-bg">
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 6 L48 52 L38 52 L30 26 L22 52 L12 52 Z" stroke="#D9A45C" stroke-width="2.5" fill="none"/>
+        <line x1="16" y1="34" x2="24" y2="18" stroke="#D9A45C" stroke-width="2"/>
+        <line x1="22" y1="34" x2="30" y2="18" stroke="#D9A45C" stroke-width="2"/>
+        <line x1="38" y1="34" x2="30" y2="18" stroke="#D9A45C" stroke-width="2"/>
+        <line x1="44" y1="34" x2="36" y2="18" stroke="#D9A45C" stroke-width="2"/>
+      </svg>
+      BAFIA INC.
+    </a>
+    <nav class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Get a quote</a>
+      <a href="tel:7087175175" class="btn btn-primary">Call 708&nbsp;717&nbsp;5175</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Owner-operated · Andrew Bafia</div>
+        <h1>Wood, worked <em>right</em>,<br>from subfloor to stair.</h1>
+        <p class="lead">Hardwood floors, stairs, trim, and custom millwork — measured, cut, and finished by hand. No subcontracted crews, no guesswork.</p>
+        <div class="hero-actions">
+          <a href="tel:7087175175" class="btn btn-primary btn-lg">Call for a quote</a>
+          <a href="#services" class="btn btn-ghost btn-lg">See the work we do</a>
+        </div>
+        <div class="hero-numbers">
+          <div class="hn">
+            <div class="k">Floors</div>
+            <div class="v">Install &amp; refinish</div>
+          </div>
+          <div class="hn">
+            <div class="k">Stairs</div>
+            <div class="v">Treads &amp; rails</div>
+          </div>
+          <div class="hn">
+            <div class="k">Trim</div>
+            <div class="v">Base &amp; casing</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <svg viewBox="0 0 300 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150 20 L235 260 L190 260 L150 120 L110 260 L65 260 Z" stroke="#D9A45C" stroke-width="3" fill="none"/>
+          <line x1="90" y1="170" x2="118" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
+          <line x1="112" y1="170" x2="140" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
+          <line x1="188" y1="170" x2="160" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
+          <line x1="210" y1="170" x2="182" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
+          <rect x="35" y="280" width="230" height="10" fill="#D9A45C"/>
+          <text x="150" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#B9A98D" letter-spacing="2">BAFIA INC. — WOODWORK</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / RINGS -->
+  <section class="rings-section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Read the ring, know the job.</h2>
+        <p>Every job we take runs through the same core disciplines — from the subfloor up to the last coat of finish.</p>
+      </div>
+
+      <div class="rings-layout">
+        <div class="rings-svg-wrap">
+          <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="210" cy="210" r="195" fill="none" stroke="#3A230F" stroke-width="1"/>
+            <circle cx="210" cy="210" r="195" fill="none" stroke="#D9A45C" stroke-width="1.4" stroke-dasharray="2 6" opacity="0.6"/>
+            <circle cx="210" cy="210" r="155" fill="none" stroke="#C08A52" stroke-width="1.2" opacity="0.55"/>
+            <circle cx="210" cy="210" r="118" fill="none" stroke="#3A230F" stroke-width="1"/>
+            <circle cx="210" cy="210" r="118" fill="none" stroke="#D9A45C" stroke-width="1.2" stroke-dasharray="2 5" opacity="0.5"/>
+            <circle cx="210" cy="210" r="82" fill="none" stroke="#C08A52" stroke-width="1.1" opacity="0.5"/>
+            <circle cx="210" cy="210" r="48" fill="none" stroke="#3A230F" stroke-width="1"/>
+            <circle cx="210" cy="210" r="20" fill="#241609" stroke="#D9A45C" stroke-width="1.6"/>
+            <path d="M210 202 L222 218 L218 218 L210 206 L202 218 L198 218 Z" fill="#D9A45C"/>
+            <line x1="210" y1="15" x2="210" y2="405" stroke="#3A230F" stroke-width="0.6"/>
+            <line x1="15" y1="210" x2="405" y2="210" stroke="#3A230F" stroke-width="0.6"/>
+          </svg>
+        </div>
+
+        <ol class="ring-list">
+          <li class="ring-item">
+            <span class="ring-num mono">01</span>
+            <div>
+              <h3>Hardwood floors</h3>
+              <p>New installs and full refinishing — sanding, staining, and sealing existing floors back to their original grain.</p>
+            </div>
+          </li>
+          <li class="ring-item">
+            <span class="ring-num mono">02</span>
+            <div>
+              <h3>Stairs</h3>
+              <p>Treads, risers, and railings built and fitted to match the rest of the home's woodwork.</p>
+            </div>
+          </li>
+          <li class="ring-item">
+            <span class="ring-num mono">03</span>
+            <div>
+              <h3>Trim &amp; millwork</h3>
+              <p>Baseboards, casing, and crown molding — cut and coped for a tight, clean fit.</p>
+            </div>
+          </li>
+          <li class="ring-item">
+            <span class="ring-num mono">04</span>
+            <div>
+              <h3>All woodwork</h3>
+              <p>Custom builds and repairs that don't fit a category — bring the job, we'll bring the fix.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>Direct to the person doing the work.</h2>
+        <p>When you call Bafia Inc., you're talking to Andrew — the person measuring your stairs, laying your floor, and standing behind the finish.</p>
+        <p>That means fewer hand-offs, a quote that matches the invoice, and a crew that shows up knowing exactly what the job needs.</p>
+      </div>
+      <div class="plank-frame">
+        <p class="plank-quote">"Good woodwork isn't rushed — it's measured twice, cut once, and finished so it lasts."</p>
+        <div class="plank-sign">
+          <div class="sig">A</div>
+          <div class="who">
+            <b>Andrew Bafia</b>
+            Owner, Bafia Inc.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Get a quote</h2>
+        <p class="lead">Call or text either number below — Andrew answers directly and can usually give a rough estimate over the phone before scheduling a walkthrough.</p>
+
+        <div class="contact-line">
+          <div class="ic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.7 21.1 2.9 13.3 2.9 3.9c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z" stroke="#D9A45C" stroke-width="1.4"/></svg>
+          </div>
+          <div>
+            <span class="label">Primary — Andrew Bafia</span>
+            <a class="tel" href="tel:7087175175">708 717 5175</a>
+          </div>
+        </div>
+        <div class="contact-line">
+          <div class="ic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.7 21.1 2.9 13.3 2.9 3.9c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z" stroke="#D9A45C" stroke-width="1.4"/></svg>
+          </div>
+          <div>
+            <span class="label">Alternate line</span>
+            <a class="tel" href="tel:7087175112">708 717 5112</a>
+          </div>
+        </div>
+
+        <p class="service-area"><b>Service area:</b> Chicagoland &amp; the south suburbs (708 area).</p>
+      </div>
+
+      <div class="contact-panel">
+        <h3>Before you call</h3>
+        <p>A little detail up front helps Andrew give you a faster, more accurate estimate.</p>
+        <ul>
+          <li>Rough square footage of the room or stairs involved</li>
+          <li>Whether it's new install, refinishing, or a repair</li>
+          <li>Wood type or look you have in mind, if you know it</li>
+          <li>Best time for a walkthrough at the property</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Bafia Inc. — Woodwork</span>
+    <span>Hardwood floor · Stairs · Trimming · All woodworks</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
