@@ -88,7 +88,7 @@
     letter-spacing:0.02em;
     text-decoration:none;
   }
-  .brand svg{height:30px;width:auto;flex-shrink:0;}
+  .brand-mark{height:34px;width:auto;flex-shrink:0;filter:brightness(0) invert(1);}
   .nav-cta{
     display:flex;
     gap:10px;
@@ -203,6 +203,12 @@
     align-items:center;
   }
   .hero-mark svg{width:100%; max-width:380px; height:auto;}
+  .hero-logo{
+    width:100%;
+    max-width:380px;
+    height:auto;
+    filter:brightness(0) saturate(100%) invert(72%) sepia(31%) saturate(672%) hue-rotate(346deg) brightness(96%) contrast(90%);
+  }
 
   /* ---------- RINGS / SERVICES ---------- */
   .rings-section{
@@ -460,13 +466,7 @@
 <header>
   <div class="nav">
     <a href="#top" class="brand">
-      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 6 L48 52 L38 52 L30 26 L22 52 L12 52 Z" stroke="#D9A45C" stroke-width="2.5" fill="none"/>
-        <line x1="16" y1="34" x2="24" y2="18" stroke="#D9A45C" stroke-width="2"/>
-        <line x1="22" y1="34" x2="30" y2="18" stroke="#D9A45C" stroke-width="2"/>
-        <line x1="38" y1="34" x2="30" y2="18" stroke="#D9A45C" stroke-width="2"/>
-        <line x1="44" y1="34" x2="36" y2="18" stroke="#D9A45C" stroke-width="2"/>
-      </svg>
+      <img src="BAFIA-INC-logo-transparent.png" alt="Bafia Inc. logo" class="brand-mark">
       BAFIA INC.
     </a>
     <nav class="nav-cta">
@@ -505,15 +505,7 @@
         </div>
       </div>
       <div class="hero-mark">
-        <svg viewBox="0 0 300 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M150 20 L235 260 L190 260 L150 120 L110 260 L65 260 Z" stroke="#D9A45C" stroke-width="3" fill="none"/>
-          <line x1="90" y1="170" x2="118" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
-          <line x1="112" y1="170" x2="140" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
-          <line x1="188" y1="170" x2="160" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
-          <line x1="210" y1="170" x2="182" y2="110" stroke="#D9A45C" stroke-width="2.5"/>
-          <rect x="35" y="280" width="230" height="10" fill="#D9A45C"/>
-          <text x="150" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#B9A98D" letter-spacing="2">BAFIA INC. — WOODWORK</text>
-        </svg>
+        <img src="BAFIA-INC-logo-transparent.png" alt="Bafia Inc. logo" class="hero-logo">
       </div>
     </div>
   </section>
