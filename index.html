@@ -468,6 +468,283 @@
     flex-shrink:0;
   }
 
+  /* ---------- GALLERY ---------- */
+  .gallery-section{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .gallery-toolbar{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+  }
+  .gallery-help{
+    margin:0;
+    color:var(--cream-muted);
+    font-size:0.95rem;
+    max-width:56ch;
+  }
+  .gallery-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .gallery-filter{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--cream-300);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:9px 12px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background .16s ease, color .16s ease, border-color .16s ease;
+  }
+  .gallery-filter:hover,
+  .gallery-filter:focus-visible{
+    border-color:var(--oak-500);
+    color:var(--cream-100);
+    outline:none;
+  }
+  .gallery-filter[aria-pressed="true"]{
+    background:var(--oak-500);
+    color:var(--walnut-950);
+    border-color:var(--oak-500);
+    font-weight:600;
+  }
+
+  .ba-block{
+    margin-top:20px;
+    padding-top:22px;
+    border-top:1px solid rgba(217,164,92,0.22);
+  }
+  .ba-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .ba-heading h3{
+    font-size:1.2rem;
+  }
+  .ba-heading p{
+    margin:0;
+    color:var(--cream-muted);
+    font-size:0.9rem;
+  }
+  .ba-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:16px;
+  }
+  .ba-card{
+    border:1px solid var(--line);
+    background:linear-gradient(160deg, var(--walnut-900), var(--walnut-950));
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.14);
+  }
+  .ba-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .ba-meta h4{
+    margin:0;
+    font-size:0.98rem;
+    color:var(--cream-100);
+  }
+  .ba-meta span{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--oak-500);
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .ba-compare{
+    position:relative;
+    border-radius:10px;
+    overflow:hidden;
+    aspect-ratio:4 / 5;
+    --after-pos:52%;
+    background:#120b06;
+  }
+  .ba-compare img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .ba-after{
+    clip-path:inset(0 0 0 var(--after-pos));
+  }
+  .ba-divider{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:rgba(244,235,220,0.88);
+    left:var(--after-pos);
+    transform:translateX(-1px);
+    pointer-events:none;
+  }
+  .ba-divider::before{
+    content:"";
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:2px solid rgba(244,235,220,0.95);
+    background:rgba(23,15,10,0.72);
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    box-shadow:0 0 0 2px rgba(12,7,4,0.28);
+  }
+  .ba-slider{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    margin:0;
+    opacity:0;
+    cursor:ew-resize;
+    z-index:2;
+  }
+  .ba-labels{
+    position:absolute;
+    inset:auto 0 10px 0;
+    display:flex;
+    justify-content:space-between;
+    padding:0 10px;
+    pointer-events:none;
+  }
+  .ba-labels span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#fff;
+    background:rgba(12,7,4,0.62);
+    border:1px solid rgba(255,255,255,0.24);
+    border-radius:999px;
+    padding:4px 8px;
+  }
+  .gallery-category{
+    margin-top:30px;
+    padding-top:24px;
+    border-top:1px solid rgba(217,164,92,0.18);
+  }
+  .gallery-category h3{
+    font-size:1.2rem;
+    color:var(--cream-100);
+    margin-bottom:14px;
+  }
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+  }
+  .project-card{
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:linear-gradient(160deg, var(--walnut-900), var(--walnut-950));
+    border-radius:12px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.16);
+    transition:transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-2px);
+    border-color:var(--oak-500);
+    box-shadow:0 18px 34px rgba(0,0,0,0.22);
+  }
+  .project-thumb{
+    border:0;
+    background:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    display:block;
+    cursor:pointer;
+    text-align:left;
+    color:inherit;
+  }
+  .project-thumb img{
+    width:100%;
+    display:block;
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+  }
+  .project-meta{
+    padding:12px 14px 14px;
+  }
+  .project-meta h4{
+    margin:0;
+    font-size:0.95rem;
+    color:var(--cream-100);
+  }
+  .project-meta p{
+    margin:4px 0 0;
+    color:var(--cream-muted);
+    font-size:0.84rem;
+  }
+  .is-hidden{
+    display:none !important;
+  }
+  .gallery-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(8,5,3,0.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:80;
+  }
+  .gallery-modal[hidden]{display:none;}
+  .gallery-modal img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    border-radius:12px;
+    border:1px solid rgba(217,164,92,0.24);
+    box-shadow:0 22px 50px rgba(0,0,0,0.35);
+  }
+  .gallery-modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:999px;
+    background:rgba(255,255,255,0.14);
+    color:white;
+    font-size:1.4rem;
+    cursor:pointer;
+  }
+  @media (max-width:900px){
+    .ba-grid{grid-template-columns:1fr;}
+    .project-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+  }
+  @media (max-width:640px){
+    .project-grid{grid-template-columns:1fr;}
+    .gallery-toolbar{align-items:flex-start;}
+    .ba-heading{align-items:flex-start;}
+    .ba-compare{aspect-ratio:4 / 5.2;}
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -543,6 +820,142 @@
       </div>
       <div class="hero-mark">
         <img src="photos/BAFIA-INC-logo-transparent.png" alt="A. Bafia Inc. logo" class="hero-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Project showcase, chosen from the best shots.</h2>
+        <p>See transformations first, then browse featured completed work. Everything is touch-friendly and opens full-screen on tap.</p>
+      </div>
+
+      <div class="gallery-toolbar">
+        <p class="gallery-help">Use the filters to narrow by project type. In the before/after cards, drag the center slider left or right to reveal the final result.</p>
+        <div class="gallery-filters" aria-label="Filter project photos">
+          <button type="button" class="gallery-filter" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="gallery-filter" data-filter="floors" aria-pressed="false">Floors</button>
+          <button type="button" class="gallery-filter" data-filter="stairs" aria-pressed="false">Stairs</button>
+          <button type="button" class="gallery-filter" data-filter="custom" aria-pressed="false">Custom</button>
+        </div>
+      </div>
+
+      <div class="ba-block">
+        <div class="ba-heading">
+          <h3>Before &amp; after highlights</h3>
+          <p>Drag the divider to compare progress and final finish.</p>
+        </div>
+
+        <div class="ba-grid">
+          <article class="ba-card" data-type="stairs">
+            <div class="ba-meta">
+              <h4>Stair Rebuild + LED Detail</h4>
+              <span>Stairs</span>
+            </div>
+            <div class="ba-compare" style="--after-pos:54%;">
+              <img src="photos/compressed-photos/IMG_8472.jpg" alt="Before: unfinished stair structure before trim and lighting" loading="lazy" class="js-open-modal" data-src="photos/compressed-photos/IMG_8472.jpg">
+              <img src="photos/compressed-photos/IMG_8693.jpg" alt="After: completed staircase with integrated under-step lighting" loading="lazy" class="ba-after js-open-modal" data-src="photos/compressed-photos/IMG_8693.jpg">
+              <div class="ba-divider" aria-hidden="true"></div>
+              <input class="ba-slider" type="range" min="0" max="100" value="54" aria-label="Compare before and after staircase photos">
+              <div class="ba-labels"><span>Before</span><span>After</span></div>
+            </div>
+          </article>
+
+          <article class="ba-card" data-type="floors">
+            <div class="ba-meta">
+              <h4>Floor Color Transformation</h4>
+              <span>Floors</span>
+            </div>
+            <div class="ba-compare" style="--after-pos:52%;">
+              <img src="photos/compressed-photos/IMG_2080.jpg" alt="Before: floor during prep and early finish stage" loading="lazy" class="js-open-modal" data-src="photos/compressed-photos/IMG_2080.jpg">
+              <img src="photos/compressed-photos/IMG_2087.jpg" alt="After: finished dark-stained hardwood floor" loading="lazy" class="ba-after js-open-modal" data-src="photos/compressed-photos/IMG_2087.jpg">
+              <div class="ba-divider" aria-hidden="true"></div>
+              <input class="ba-slider" type="range" min="0" max="100" value="52" aria-label="Compare before and after flooring photos">
+              <div class="ba-labels"><span>Before</span><span>After</span></div>
+            </div>
+          </article>
+
+          <article class="ba-card" data-type="stairs">
+            <div class="ba-meta">
+              <h4>Landing and Stair Progress</h4>
+              <span>Stairs</span>
+            </div>
+            <div class="ba-compare" style="--after-pos:50%;">
+              <img src="photos/compressed-photos/IMG_3391.jpg" alt="Before: landing and stairs in progress" loading="lazy" class="js-open-modal" data-src="photos/compressed-photos/IMG_3391.jpg">
+              <img src="photos/compressed-photos/IMG_3394.jpg" alt="After: cleaner install stage with fitted stair details" loading="lazy" class="ba-after js-open-modal" data-src="photos/compressed-photos/IMG_3394.jpg">
+              <div class="ba-divider" aria-hidden="true"></div>
+              <input class="ba-slider" type="range" min="0" max="100" value="50" aria-label="Compare progress photos of the stair landing">
+              <div class="ba-labels"><span>Before</span><span>After</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Featured finished work</h3>
+        <div class="project-grid">
+          <article class="project-card" data-type="floors">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_1780.jpg" aria-label="Open full-size floor project photo">
+              <img src="photos/compressed-photos/IMG_1780.jpg" alt="High-gloss hardwood floor in kitchen and dining area" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Kitchen Hardwood Refinish</h4>
+              <p>Floors</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-type="custom">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_0439.jpg" aria-label="Open full-size custom wood bar top photo">
+              <img src="photos/compressed-photos/IMG_0439.jpg" alt="Custom live-edge wood bar top" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Live-Edge Bar Top</h4>
+              <p>Custom woodwork</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-type="stairs">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_0014.jpg" aria-label="Open full-size staircase project photo with glass rail">
+              <img src="photos/compressed-photos/IMG_0014.jpg" alt="Modern staircase with wood treads and glass railing" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Glass-Rail Stair Install</h4>
+              <p>Stairs</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-type="custom">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_0317.jpg" aria-label="Open full-size custom vanity project photo">
+              <img src="photos/compressed-photos/IMG_0317.jpg" alt="Custom vanity top with vessel sink" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Custom Vanity Top</h4>
+              <p>Custom woodwork</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-type="stairs">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_8692.jpg" aria-label="Open full-size illuminated staircase photo">
+              <img src="photos/compressed-photos/IMG_8692.jpg" alt="Completed staircase with integrated LED lights" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Illuminated Stair Finish</h4>
+              <p>Stairs</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-type="floors">
+            <button type="button" class="project-thumb js-open-modal" data-src="photos/compressed-photos/IMG_2088.jpg" aria-label="Open full-size finished dark-floor project photo">
+              <img src="photos/compressed-photos/IMG_2088.jpg" alt="Wide view of finished dark hardwood flooring" loading="lazy">
+            </button>
+            <div class="project-meta">
+              <h4>Whole-Room Floor Finish</h4>
+              <p>Floors</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -685,8 +1098,85 @@
   </div>
 </footer>
 
+<div class="gallery-modal" id="galleryModal" hidden>
+  <button class="gallery-modal-close" type="button" aria-label="Close preview">×</button>
+  <img id="galleryModalImage" alt="Preview of uploaded project photo">
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const modal = document.getElementById('galleryModal');
+  const modalImage = document.getElementById('galleryModalImage');
+  const closeModalButton = modal ? modal.querySelector('.gallery-modal-close') : null;
+
+  const openModalFromElement = (element) => {
+    if (!modal || !modalImage || !element) return;
+    const source = element.dataset.src || element.getAttribute('src');
+    if (!source) return;
+    const alt = element.getAttribute('alt') || 'Preview of uploaded project photo';
+    modalImage.src = source;
+    modalImage.alt = alt;
+    modal.hidden = false;
+  };
+
+  document.querySelectorAll('.js-open-modal').forEach((element) => {
+    element.addEventListener('click', () => openModalFromElement(element));
+  });
+
+  document.querySelectorAll('.ba-slider').forEach((slider) => {
+    const wrapper = slider.closest('.ba-compare');
+    if (!wrapper) return;
+    wrapper.style.setProperty('--after-pos', `${slider.value}%`);
+    slider.addEventListener('input', () => {
+      wrapper.style.setProperty('--after-pos', `${slider.value}%`);
+    });
+  });
+
+  const filterButtons = Array.from(document.querySelectorAll('.gallery-filter'));
+  const filterItems = Array.from(document.querySelectorAll('.ba-card, .project-card'));
+
+  const applyFilter = (filter) => {
+    filterButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+    });
+
+    filterItems.forEach((item) => {
+      const match = filter === 'all' || item.dataset.type === filter;
+      item.classList.toggle('is-hidden', !match);
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      applyFilter(button.dataset.filter || 'all');
+    });
+  });
+
+  applyFilter('all');
+
+  if (closeModalButton) {
+    closeModalButton.addEventListener('click', () => {
+      modal.hidden = true;
+      modalImage.removeAttribute('src');
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.hidden = true;
+        modalImage.removeAttribute('src');
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.hidden) {
+      modal.hidden = true;
+      modalImage.removeAttribute('src');
+    }
+  });
 </script>
 
 </body>
