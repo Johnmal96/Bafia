@@ -580,6 +580,8 @@
     aspect-ratio:4 / 5;
     --after-pos:52%;
     background:#120b06;
+    cursor:ew-resize;
+    touch-action:pan-y;
   }
   .ba-compare img{
     position:absolute;
@@ -624,6 +626,7 @@
     opacity:0;
     cursor:ew-resize;
     z-index:2;
+    pointer-events:none;
   }
   .ba-labels{
     position:absolute;
@@ -1158,10 +1161,43 @@
     element.addEventListener('click', () => openModalFromElement(element));
   });
 
-  document.querySelectorAll('.ba-slider').forEach((slider) => {
-    const wrapper = slider.closest('.ba-compare');
-    if (!wrapper) return;
+  document.querySelectorAll('.ba-compare').forEach((wrapper) => {
+    const slider = wrapper.querySelector('.ba-slider');
+    if (!slider) return;
+
     wrapper.style.setProperty('--after-pos', `${slider.value}%`);
+
+    // Let a drag/tap anywhere on the photo move the divider, not just the tiny native thumb (helps touch/fat-finger use).
+    const setPosFromClientX = (clientX) => {
+      const rect = wrapper.getBoundingClientRect();
+      const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+      slider.value = pct;
+      wrapper.style.setProperty('--after-pos', `${pct}%`);
+    };
+
+    let dragging = false;
+
+    wrapper.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      wrapper.setPointerCapture(event.pointerId);
+      setPosFromClientX(event.clientX);
+    });
+
+    wrapper.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      setPosFromClientX(event.clientX);
+    });
+
+    const endDrag = (event) => {
+      dragging = false;
+      if (wrapper.hasPointerCapture(event.pointerId)) {
+        wrapper.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    wrapper.addEventListener('pointerup', endDrag);
+    wrapper.addEventListener('pointercancel', endDrag);
+
     slider.addEventListener('input', () => {
       wrapper.style.setProperty('--after-pos', `${slider.value}%`);
     });
