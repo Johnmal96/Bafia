@@ -540,11 +540,14 @@
     font-size:0.9rem;
   }
   .ba-grid{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:16px;
   }
   .ba-card{
+    flex:0 1 calc((100% - 32px) / 3);
+    max-width:calc((100% - 32px) / 3);
     border:1px solid var(--line);
     background:linear-gradient(160deg, var(--walnut-900), var(--walnut-950));
     border-radius:12px;
@@ -735,7 +738,10 @@
     cursor:pointer;
   }
   @media (max-width:900px){
-    .ba-grid{grid-template-columns:1fr;}
+    .ba-card{
+      flex-basis:100%;
+      max-width:100%;
+    }
     .project-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
   }
   @media (max-width:640px){
